@@ -6,7 +6,13 @@ export default {
       store,
     }
   },
+  requiredValues: [
+    'title',
+    'original_title',
+    'original_language',
+    'vote_average',
 
+  ],
   getMovie() {
 
   }
@@ -16,9 +22,14 @@ export default {
   <div>
     <input type="text" v-model="store.searchMovie">
     <button @click="$emit('finder_movie')">Search</button>
-    <ul v-for="movie,index in store.movieList" :key="index">
-        <li>{{movie.title}}</li>
-    </ul>
+    <div v-for="movie,index in store.movieList" :key="index">
+      <ul>
+          <li>{{movie.title}}</li>
+          <li>{{movie.original_title}}</li>
+          <li>{{movie.original_language}}</li>
+          <li>{{movie.vote_average}}</li>
+      </ul>
+    </div>
   </div>
 </template>
 <style lang="">

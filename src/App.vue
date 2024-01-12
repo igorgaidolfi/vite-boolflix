@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     getMovieList() {
-      let apiMovies = store.movies_ep + `?api_key=${store.apiKey}`
+      let apiMovies = store.movies_ep + `?language=${store.apiKey}` + `&api_key=${store.apiKey}`
 
       if (store.searchMovie != '') {
         apiMovies += `&query=${store.searchMovie}`
