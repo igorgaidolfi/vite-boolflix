@@ -10,7 +10,7 @@ export default {
 </script>
 <template lang="">
   <div>
-    <div v-for="tv,index in seriesList" :key="index">
+    <div v-for="tv,index in store.seriesList" :key="index">
         <ul>
             <li>{{tv.name}}</li>
             <li>{{tv.original_name}}</li>

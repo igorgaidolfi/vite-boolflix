@@ -20,26 +20,24 @@ export default {
   methods: {
     getMovieList() {
       let apiMovies = store.movies_ep + `?api_key=${store.apiKey}` + `&language=${store.language}`
+      let apiSeries = store.series_ep + `?api_key=${store.apiKey}` + `&language=${store.language}`
+      console.log(apiSeries)
 
       if (store.searchMovie != '') {
         apiMovies += `&query=${store.searchMovie}`
+        apiSeries += `&query=${store.searchMovie}`
       }
       axios.get(apiMovies).then((response) => {
         store.moviesList = response.data.results
       })
-    },
-    getSeriesList() {
-      let apiSeries = store.series_ep + `?api_key=${store.apiKey}` + `&language=${store.language}`
-      if (store.searchMovie != '') {
-        apiSeries += `&query=${store.searchMovie}`
-      }
       axios.get(apiSeries).then((response) => {
         store.seriesList = response.data.results
       })
-    }
+    },
   },
   created() {
     this.getMovieList()
+
 
   },
 }
