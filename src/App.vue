@@ -26,12 +26,17 @@ export default {
   },
   created() {
     this.getMovieList()
+
   },
 }
 </script>
 <template lang="">
   <div>
+    <input type="text" v-model="store.searchMovie">
+    <h2>Film</h2>
     <SearchMovies @finder_movie="getMovieList"/>
+    <h2>Series</h2>
+
   </div>
 </template>
 <style lang="">
