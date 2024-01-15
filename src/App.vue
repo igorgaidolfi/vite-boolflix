@@ -14,14 +14,13 @@ export default {
   },
   methods: {
     getMovieList() {
-      let apiMovies = store.movies_ep + `?language=${store.apiKey}` + `&api_key=${store.apiKey}`
+      let apiMovies = store.movies_ep + `?api_key=${store.apiKey}` + `&language=${store.language}`
 
       if (store.searchMovie != '') {
         apiMovies += `&query=${store.searchMovie}`
       }
       axios.get(apiMovies).then((response) => {
-        store.movieList = response.data.results
-        console.log(apiMovies)
+        store.moviesList = response.data.results
       })
     }
   },

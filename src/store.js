@@ -5,6 +5,6 @@ export const store = reactive({
     series_ep: 'https://api.themoviedb.org/3/search/tv',
     moviesList: [],
     searchMovie: '',
-    language: 'it_IT'
+    language: 'it'
 
 })

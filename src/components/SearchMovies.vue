@@ -22,7 +22,7 @@ export default {
   <div>
     <input type="text" v-model="store.searchMovie">
     <button @click="$emit('finder_movie')">Search</button>
-    <div v-for="movie,index in store.movieList" :key="index">
+    <div v-for="movie,index in store.moviesList" :key="index">
       <ul>
           <li>{{movie.title}}</li>
           <li>{{movie.original_title}}</li>
