@@ -1,11 +1,16 @@
 <script>
 import axios from 'axios'
 import SearchMovies from './components/SearchMovies.vue';
+import AppMovies from './components/AppMovies.vue';
+import AppSeries from './components/AppSeries.vue';
+
 import { store } from './store.js'
 
 export default {
   components: {
     SearchMovies,
+    AppMovies,
+    AppSeries
   },
   data() {
     return {
@@ -22,6 +27,15 @@ export default {
       axios.get(apiMovies).then((response) => {
         store.moviesList = response.data.results
       })
+    },
+    getSeriesList() {
+      let apiSeries = store.series_ep + `?api_key=${store.apiKey}` + `&language=${store.language}`
+      if (store.searchMovie != '') {
+        apiSeries += `&query=${store.searchMovie}`
+      }
+      axios.get(apiSeries).then((response) => {
+        store.seriesList = response.data.results
+      })
     }
   },
   created() {
@@ -32,10 +46,11 @@ export default {
 </script>
 <template lang="">
   <div>
-    <h2>Film</h2>
     <SearchMovies @finder_movie="getMovieList"/>
+    <h2>Film</h2>
+    <AppMovies/>
     <h2>Series</h2>
-
+    <AppSeries/>
   </div>
 </template>
 <style lang="">
