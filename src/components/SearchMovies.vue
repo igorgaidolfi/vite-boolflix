@@ -23,26 +23,18 @@ export default {
       default: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Earth_Day_Flag.png/',
     },
   ],
-  requiredValues: [
-    'title',
-    'original_title',
-    'original_language',
-    'vote_average',
-
-  ],
   methods: {
-    flagChanger(index) {
-      // let flag = store.moviesList(index).original_language
-      // console.log(flag)
-      // this.flag_list.forEach(element => {
-      //   if (element.code == flag) {
-      //     this.store.moviesList(index).original_language = element.img
-      //   }
-      //   else {
-      //     this.store.moviesList(index).original_language = element.default
-      //   }
-      // })
-      // return this.store.moviesList(index).original_language
+    flagChanger(flag) {
+      console.log(flag)
+      flag_list.forEach((element) => {
+        if (element.code == flag) {
+          flag = element.img
+        }
+        else {
+          flag = element.default
+        }
+      })
+      return flag
     }
   },
 
@@ -55,7 +47,7 @@ export default {
       <ul>
           <li>{{movie.title}}</li>
           <li>{{movie.original_title}}</li>
-          <li>{{movie.original_language}}</li>
+          <li>{{flagChanger(movie.original_language)}}</li>
           <li>{{movie.vote_average}}</li>
       </ul>
     </div>
