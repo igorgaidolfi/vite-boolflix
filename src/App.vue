@@ -21,6 +21,7 @@ export default {
     getMovieList() {
       let apiMovies = store.movies_ep + `?api_key=${store.apiKey}` + `&language=${store.language}`
       let apiSeries = store.series_ep + `?api_key=${store.apiKey}` + `&language=${store.language}`
+      let apiImg = store.images_ep
       console.log(apiSeries)
 
       if (store.searchMovie != '') {

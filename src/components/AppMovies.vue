@@ -29,18 +29,24 @@ export default {
                 }
             })
             return output
+        },
+        addImg(url) {
+            let output = store.images_ep
+            console.log(output)
+            return output + url
         }
     },
 }
 </script>
 <template lang="">
   <div v-for="movie,index in store.moviesList" :key="index">
-      <ul>
-          <li>{{movie.title}}</li>
-          <li>{{movie.original_title}}</li>
-          <li><img :src="flagChanger(movie.original_language)"></li>
-          <li>{{movie.vote_average}}</li>
-      </ul>
+        <ul>
+            <li><img :src="addImg(movie.poster_path)"></li>
+            <li>{{movie.title}}</li>
+            <li>{{movie.original_title}}</li>
+            <li><img :src="flagChanger(movie.original_language)"></li>
+            <li>{{movie.vote_average}}</li>
+        </ul>
     </div>
 </template>
 <style lang="">
