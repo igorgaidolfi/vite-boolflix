@@ -57,7 +57,7 @@ export default {
             <li><img :src="addImg(movie.poster_path)"></li>
             <li>{{movie.title}}</li>
             <li>{{movie.original_title}}</li>
-            <li><img :src="flagChanger(movie.original_language)" :alt="{{movie.title}}"></li>
+            <li><img :src="flagChanger(movie.original_language)" :alt="movie.title"></li>
             <li>
                 <i v-for="star in starRatings(movie.vote_average)"><font-awesome-icon icon="fa-solid fa-star" /></i>
                 <i v-for="star in 5 - starRatings(movie.vote_average)"><font-awesome-icon icon="fa-regular fa-star" /></i>

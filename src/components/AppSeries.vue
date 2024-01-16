@@ -1,6 +1,15 @@
 <script>
 import { store } from '../store.js'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
+library.add(fasStar, farStar)
 export default {
+    components: {
+        library,
+        FontAwesomeIcon,
+    },
     data() {
         return {
             store,
@@ -33,7 +42,11 @@ export default {
         addImg(url) {
             let output = store.images_ep
             return output + url
-        }
+        },
+        starRatings(vote) {
+            let stars = vote / 2
+            return Math.ceil(stars)
+        },
     },
 }
 </script>
@@ -44,8 +57,11 @@ export default {
             <li><img :src="addImg(tv.poster_path)"></li>
             <li>{{tv.name}}</li>
             <li>{{tv.original_name}}</li>
-            <li><img :src="flagChanger(tv.original_language)"></li>
-            <li>{{tv.vote_average}}</li>
+            <li><img :src="flagChanger(tv.original_language)" :alt="tv.title"></li>
+            <li>
+                <i v-for="star in starRatings(tv.vote_average)"><font-awesome-icon icon="fa-solid fa-star" /></i>
+                <i v-for="star in 5 - starRatings(tv.vote_average)"><font-awesome-icon icon="fa-regular fa-star" /></i>
+            </li>
         </ul>
     </div>
   </div>
