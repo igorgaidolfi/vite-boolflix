@@ -3,13 +3,15 @@ import axios from 'axios'
 import SearchMovies from './components/SearchMovies.vue';
 import AppMovies from './components/AppMovies.vue';
 import AppSeries from './components/AppSeries.vue';
+import AppHeader from './components/AppHeader.vue';
 import { store } from './store.js'
 
 export default {
   components: {
     SearchMovies,
     AppMovies,
-    AppSeries
+    AppSeries,
+    AppHeader
   },
   data() {
     return {
@@ -35,20 +37,19 @@ export default {
   },
   created() {
     this.getMovieList()
-
-
   },
 }
 </script>
 <template lang="">
   <div>
-    <SearchMovies @finder_movie="getMovieList"/>
+    <AppHeader @finder_movie="getMovieList"/>
+    <SearchMovies/>
     <h2>Film</h2>
     <AppMovies/>
     <h2>Series</h2>
     <AppSeries/>
   </div>
 </template>
-<style lang="">
-  
+<style lang="scss">
+@use './styles/generals.scss';
 </style>
