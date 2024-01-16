@@ -3,7 +3,6 @@ import axios from 'axios'
 import SearchMovies from './components/SearchMovies.vue';
 import AppMovies from './components/AppMovies.vue';
 import AppSeries from './components/AppSeries.vue';
-
 import { store } from './store.js'
 
 export default {
@@ -21,8 +20,6 @@ export default {
     getMovieList() {
       let apiMovies = store.movies_ep + `?api_key=${store.apiKey}` + `&language=${store.language}`
       let apiSeries = store.series_ep + `?api_key=${store.apiKey}` + `&language=${store.language}`
-      let apiImg = store.images_ep
-      console.log(apiSeries)
 
       if (store.searchMovie != '') {
         apiMovies += `&query=${store.searchMovie}`

@@ -32,7 +32,6 @@ export default {
         },
         addImg(url) {
             let output = store.images_ep
-            console.log(output)
             return output + url
         }
     },
